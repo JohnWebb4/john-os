@@ -9,7 +9,7 @@ LINKED_FILE="$DIR/$FILE_NO_EXT.o"
 OUT_FILE="$DIR/$FILE_NO_EXT.out"
 
 echo "Compiling: $FILE_PATH to $LINKED_FILE"
-nasm -fmacho64 $FILE_PATH 
+nasm -fmacho64 $FILE_PATH -o $LINKED_FILE
 
 echo "Linking $LINKED_FILE to $OUT_FILE"
-ld -e start -static $LINKED_FILE -o $OUT_FILE
+gcc $LINKED_FILE -o $OUT_FILE
